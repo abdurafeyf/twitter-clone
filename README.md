@@ -1,10 +1,10 @@
-## Fullstack Twitter Clone with React, Node, Mongodb, Firebase
+## Full stack twitter clone using React, Node, Express, MongoDB, Firebase Storage, and JWT
 
-![git-twitter](https://user-images.githubusercontent.com/32399333/207771374-49bc685c-610e-4714-8af9-a5995d27489c.png)
+A simple clone of twitter (known as X).
 
-<!-- CREDITS -->
-<h2 id="credits"> :scroll: Credits</h2>
+![git-twitter](mainpage.png)
 
-Oliver G
-
-[![GitHub Badge](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/oliver-gomes)
+### Installation
+Currently, the service is not deployed and the ENV and firebase credentials are exposed. So, to run the app
+one needs to clone it, npm install in both **server** and **client** directories and run both backend and
+frontend services using *npm install*
