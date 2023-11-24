@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import axios from "axios";
-
 import { useDispatch } from "react-redux";
 import { loginStart, loginSuccess, loginFailed } from "../../redux/userSlice";
-
 import { useNavigate } from "react-router-dom";
 
 const Signin = () => {
@@ -18,8 +15,21 @@ const Signin = () => {
     e.preventDefault();
     dispatch(loginStart());
     try {
-      const res = await axios.post("https://twitter-backend-tawny.vercel.app/auth/signin", { username, password });
-      dispatch(loginSuccess(res.data));
+      const res = await fetch("https://twitter-backend-tawny.vercel.app/auth/signin", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, password }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.message || "Failed to log in");
+      }
+
+      dispatch(loginSuccess(data));
       navigate("/");
     } catch (err) {
       dispatch(loginFailed());
@@ -31,12 +41,21 @@ const Signin = () => {
     dispatch(loginStart());
 
     try {
-      const res = await axios.post("https://twitter-backend-tawny.vercel.app/auth/signup", {
-        username,
-        email,
-        password,
+      const res = await fetch("https://twitter-backend-tawny.vercel.app/auth/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, email, password }),
       });
-      dispatch(loginSuccess(res.data));
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.message || "Failed to sign up");
+      }
+
+      dispatch(loginSuccess(data));
       navigate("/");
     } catch (err) {
       dispatch(loginFailed());
