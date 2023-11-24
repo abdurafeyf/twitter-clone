@@ -11,7 +11,7 @@ const ExploreTweets = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const exploreTweets = await axios.get("https://twitter-backend-tawny.vercel.app/tweets/explore");
+        const exploreTweets = await axios.get("https://twitter-backend-tawny.vercel.app/api/tweets/explore");
         setExplore(exploreTweets.data);
       } catch (err) {
         console.log("error", err);

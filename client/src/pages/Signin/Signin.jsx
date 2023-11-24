@@ -15,7 +15,7 @@ const Signin = () => {
     e.preventDefault();
     dispatch(loginStart());
     try {
-      const res = await fetch("https://twitter-backend-tawny.vercel.app/auth/signin", {
+      const res = await fetch("https://twitter-backend-tawny.vercel.app/api/auth/signin", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -41,7 +41,7 @@ const Signin = () => {
     dispatch(loginStart());
 
     try {
-      const res = await fetch("https://twitter-backend-tawny.vercel.app/auth/signup", {
+      const res = await fetch("https://twitter-backend-tawny.vercel.app/api/auth/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

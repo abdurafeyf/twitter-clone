@@ -53,7 +53,7 @@ const EditProfile = ({ setOpen }) => {
         // Upload completed successfully, now we can get the download URL
         getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
           try {
-            const updateProfile = await axios.put(`https://twitter-backend-tawny.vercel.app/users/${currentUser._id}`, {
+            const updateProfile = await axios.put(`https://twitter-backend-tawny.vercel.app/api/users/${currentUser._id}`, {
               profilePicture: downloadURL,
             });
 
@@ -70,7 +70,7 @@ const EditProfile = ({ setOpen }) => {
   };
 
   const handleDelete = async () => {
-    const deleteProfile = await axios.delete(`https://twitter-backend-tawny.vercel.app/users/${currentUser._id}`);
+    const deleteProfile = await axios.delete(`https://twitter-backend-tawny.vercel.app/api/users/${currentUser._id}`);
     dispatch(logout());
     navigate("/signin");
   };
