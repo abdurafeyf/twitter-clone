@@ -31,6 +31,7 @@ app.use(cors({ origin: "https://twitter-backend-tawny.vercel.app" }));
 
 app.use(cookieParser());
 app.use(express.json());
+
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/tweets", tweetRoutes);
