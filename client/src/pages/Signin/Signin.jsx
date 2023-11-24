@@ -18,7 +18,7 @@ const Signin = () => {
     e.preventDefault();
     dispatch(loginStart());
     try {
-      const res = await axios.post("/auth/signin", { username, password });
+      const res = await axios.post("https://twitter-backend-tawny.vercel.app/auth/signin", { username, password });
       dispatch(loginSuccess(res.data));
       navigate("/");
     } catch (err) {
@@ -31,7 +31,7 @@ const Signin = () => {
     dispatch(loginStart());
 
     try {
-      const res = await axios.post("/auth/signup", {
+      const res = await axios.post("https://twitter-backend-tawny.vercel.app/auth/signup", {
         username,
         email,
         password,

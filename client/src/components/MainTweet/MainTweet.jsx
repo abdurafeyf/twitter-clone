@@ -12,7 +12,7 @@ const MainTweet = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const submitTweet = await axios.post("/tweets", {
+      const submitTweet = await axios.post("https://twitter-backend-tawny.vercel.app/tweets", {
         userId: currentUser._id,
         description: tweetText,
       });
