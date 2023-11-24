@@ -26,7 +26,9 @@ const connect = () => {
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(cors({ origin: "*" }));
+
+app.use(cors({ origin: "https://twitter-backend-tawny.vercel.app" }));
+
 app.use(cookieParser());
 app.use(express.json());
 app.use("/api/users", userRoutes);
